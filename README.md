@@ -23,3 +23,6 @@ The primary goal of this system is to allow users to consult and create reviews 
 * **Bootstrap:** A popular front-end framework for developing responsive and mobile-first websites.
 
 **Note:** Do not forget to create a virtual environment and install the requirements listed in requirements.txt.
+
+
+![image](https://github.com/AlejandroVillasenor/WikiProfes/assets/92410341/3f5f72ff-3d67-4c5f-a2ec-9d4aba54caea)
