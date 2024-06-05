@@ -1,0 +1,107 @@
+/* Estilos para los detalles de la materia */
+#divTitulo{
+    margin-bottom: 16px !important;
+}
+
+#tituloDetalles{
+    width:  100% !important; 
+    font-size: 2.4rem;
+}
+
+.materia-details {
+    background: #f5f6f8;
+    border-radius: 8px;
+}
+
+.materia-detail-title {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.8rem;
+    margin: 0;
+    color: #63676a;
+}
+
+.materia-detail-value {
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+/* Estilos para las cabeceras de la tabla */
+.ratingColum{
+    width: 24%;
+}
+
+.header-table {
+    font-size: 1.2rem;
+    background: #dddddc !important;
+}
+
+/* Estilos para el contador de reseñas */
+.resenas-count {
+    border-color: Black;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    width: 100%;
+    text-align: left;
+}
+
+/*Estilos reseñas*/
+.calificacion-puntuacion {
+    font-size: 1.2rem;
+    margin-left: 6%;
+    margin-right: 6%;
+    font-weight: bold;
+    background: #dddddc;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.calificacion-label {
+    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+}
+
+.comentario-fecha {
+    font-size: 0.9rem;
+    color: #63676a;
+    text-align: end;
+}
+
+.profesor-celda {
+    font-size: 1rem;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.comentario-titulo {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.comentario-texto {
+    text-align: justify;
+    font-size: 1rem;
+}
+
+.comentario-autor {
+    font-size: 0.9rem;
+    text-align: right;
+    font-style: italic;
+    color: #63676a;
+}
+
+/*Links de detalles*/
+.linkDetalle {
+    text-decoration: none; 
+}
+
+.linkDetalle:hover {
+    color: #fec106 !important; 
+    transition: color 0.3s !important; /* Agrega una transición suave de color */
+}

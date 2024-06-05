@@ -1,0 +1,88 @@
+/* Container Styles */
+.form-container, .form-col {
+    border-style: none;
+}
+
+/* Title Styles */
+.form-title {
+    width: 100%;
+    text-align: center;
+}
+
+/* Professor Info Styles */
+.profesor-info {
+    width: 100%;
+    padding: 2.5%;
+    border-style: solid;
+    border-color: rgba(89,89,89,0.33);
+    border-radius: 8px;
+    margin-bottom: 7%;
+    margin-top: 3.5%;
+}
+
+.profesor-label {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.profesor-span {
+    color: rgba(89, 89, 89, 0.67);
+}
+
+/* Form Styles */
+.form-control{
+    margin-bottom: 2%;
+    border-radius: 16px !important;
+    margin-bottom: 9px;
+    padding: 9px 24px;
+}
+
+.experiencia-form {
+    display: block;
+}
+
+.experiencia-form input, .comentarios {
+    margin-bottom: 2%;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.calificacion-group {
+    width: 80%;
+}
+
+.calificacion-item-label {
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+.calificacion-select {
+    text-align: justify;
+    color: black;
+    width: 19% !important;
+    padding-right: 0;
+    padding-left: 3%;
+    padding-top: 2.3%;
+    padding-bottom: 2.3%;
+    border-radius: 16px;
+}
+
+
+/* Submit Button Styles */
+.submit-btn {
+    margin-top: 5% !important;
+    margin-bottom: 5% !important;
+    border-radius: 8px !important;
+    padding: 1.9% 6.9% !important;
+    background: #63676a !important;
+    border-style: none ;
+    font-size: 1.1rem;
+}
+
+/*Errors*/
+.errores-formulario{
+    color: #ff5555;
+}
+

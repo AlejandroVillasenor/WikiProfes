@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Registro</title>
+{% endblock title %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Registro</h1>
+                {% for error in form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>          
+                {% endfor %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nombre_usuario-id" class="form-label">Nombre de usuario</label>
+                        <input 
+                        type="text" 
+                        class="form-control" 
+                        id="nombre_usuario-id" 
+                        name="nombre_usuario"
+                        {% if form.errors %}
+                            value="{{ form.nombre_usuario.value }}"
+                        {% endif %}
+                        >
+                        {% for error in form.nombre_usuario.errors %}
+                        <p style="color: #ff5555">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo-id" class="form-label">Correo</label>
+                        <input 
+                        type="email" 
+                        class="form-control" 
+                        id="correo-id" 
+                        name="correo"
+                        {% if form.errors %}
+                            value="{{ form.correo.value }}"
+                        {% endif %}
+                        >
+                        {% for error in form.correo.errors %}
+                        <p style="color: #ff5555">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    <div class="mb-3">
+                        <label for="contra-id" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contra-id" name="contra">
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmacion-id" class="form-label">Confirmación de contraseña</label>
+                        <input type="password" class="form-control" id="confirmacion-id" name="confirmacion">
+                    </div>
+                    <div class="btn-group mb-5" role="group" aria-label="Basic example">
+                      <button type="submit" class="btn btn-warning">Enviar</button>
+                      <button type="reset" class="btn btn-secondary">Reiniciar</button>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'usuario:inicio' %}">¿Ya tienes una cuenta? Inicia sesión aquí</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

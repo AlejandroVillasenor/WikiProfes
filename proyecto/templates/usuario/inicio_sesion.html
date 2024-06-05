@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Iniciar Sesión</title>
+{% endblock title %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container d-flex justify-content-center">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Iniciar Sesión</h1>
+                {% if form.errors %}
+                <div class="alert alert-danger" role="alert">
+                    Las credenciales no coinciden.
+                </div>
+                {% endif %}
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="nombre_usuario-id" class="form-label">Nombre de usuario</label>
+                        <input type="text" class="form-control" id="nombre_usuario-id" name="username" {% if form.errors %} value="{{ form.username.value }}" {% endif %}>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contra-id" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="contra-id" name="password">
+                    </div>
+                    <div class="btn-group mb-5" role="group" aria-label="Basic example">
+                        <button type="submit" class="btn btn-warning">Enviar</button>
+                        <button type="reset" class="btn btn-secondary">Reiniciar</button>
+                    </div>
+                    <div class="mb-3">
+                        <a href="{% url 'usuario:registro' %}">¿No tienes una cuenta? Regístrate aquí</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

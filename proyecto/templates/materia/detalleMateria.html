@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>{{ materia.nombre }}</title>
+{% endblock title %}
+
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'assets/css/Fully-responsive-table.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Table-with-Vertical-Alignment.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styleDetalleMateria.css' %}">
+{% endblock links %}
+
+{% block content %}
+    <section class="py-5 mt-5">
+        <div class="container py-5">
+            <div id="divTitulo" class="row text-center justify-content-lg-start align-items-lg-start mb-5">
+                <div  class="text-center">
+                    <h2 id="tituloDetalles" class="fw-bold d-flex justify-content-start">Detalles de la materia</h2>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 d-sm-flex justify-content-sm-center materia-details">
+                <div class="col d-flex flex-column justify-content-center mb-4">
+                    <p class="materia-detail-title">Nombre</p>
+                    <p id="nombreMateriaId" name="nombreMateria" class="materia-detail-value">{{ materia.nombre }}</p>
+                </div>
+                <div class="col d-flex flex-column justify-content-center mb-4">
+                    <p class="materia-detail-title">Clave</p>
+                    <p id="claveMateriaId" name="claveMateria" class="materia-detail-value">{{ materia.clave }}</p>
+                </div>
+                <div class="col d-flex flex-column justify-content-center mb-4">
+                    <p class="materia-detail-title">Departamento</p>
+                    <p id="departamentoMateriaId" name="departamentoMateria" class="materia-detail-value">{{ materia.departamento }}</p>
+                </div>
+            </div>
+        </div>
+        {% if publicaciones %}
+        <div class="container py-5">
+            <div class="row">
+                <div class="col">
+                    <p class="resenas-count">{{numPublicaciones}} Reseña(s)</p>
+                </div>
+            </div>
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="header-table ratingColum">Calificación</th>
+                                    <th class="header-table">Profesor</th>
+                                    <th class="header-table">Comentario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for publicacion in publicaciones %}
+                                <tr>
+                                    <td>
+                                        <div class="d-flex flex-row justify-content-start align-items-center align-content-center">
+                                            <p class="calificacion-puntuacion">{{publicacion.calGeneralPublicacion}}</p>
+                                            <p class="calificacion-label">Calificación General</p>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-start align-items-center align-content-center">
+                                            <p class="calificacion-puntuacion">{{publicacion.dificultad}}.0</p>
+                                            <p class="calificacion-label">Dificultad</p>
+                                        </div>
+                                        <div class="d-flex flex-row justify-content-start align-items-center align-content-center">
+                                            <p class="calificacion-puntuacion">{{publicacion.dominio}}.0</p>
+                                            <p class="calificacion-label">Dominio de la materia</p>
+                                        </div>
+                                        <p class="text-end comentario-fecha">{{publicacion.fecha}}</p>
+                                    </td>
+                                    <td class="profesor-celda"><a href="{% url 'profesor:perfilProfesor' pk=publicacion.profesor.id %}" class="linkDetalle nav-link">{{ publicacion.profesor}}</a></td>
+                                    <td>
+                                        <p class="comentario-titulo">{{ publicacion.titulo }}</p>
+                                        <p class="comentario-texto">{{publicacion.comentario}}</p>
+                                        <p class="comentario-autor">Por {{publicacion.usuario}}</p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="container py-5">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>¡No se encontraron reseñas!</strong>  Prueba con otra materia.
+            </div>
+        </div>
+        {% endif %}
+    </section>
+
+{% endblock content %}

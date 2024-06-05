@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <title>Profesores</title>
+{% endblock title %}
+
+<!-- Mostrar los profesores en la base de datos -->
+{% block content %}
+    <div class="container d-flex flex-column align-items-center py-5">
+        <h1>Profesores</h1>
+        <!-- Search div -->
+        <form class="form-inline d-flex w-50 my-3" method="get">
+            <input class="form-control me-2 flex-grow-1" type="search" name="q" placeholder="Nombre" aria-label="Search" value="{{ request.GET.q }}">
+            <button class="btn btn-outline-warning" type="submit">Buscar</button>
+        </form>
+        
+        <!-- Lista de profesores -->
+        <div class="list-group mt-3 w-50 lista-resultados">
+            {% for profesor in profesores %}
+            <a href="{% url 'profesor:perfilProfesor' pk=profesor.pk %}" class="list-group-item list-group-item-action"><h5>{{ profesor.nombre }}</h5></a>
+            {% endfor %}
+        </div>  
+        <!-- Mostrar un mensaje si no hay resultados -->
+        {% if not profesores %}
+        <div class="alert alert-warning w-50 mt-3" role="alert">
+            No se encontraron profesores.
+        </div>
+        {% endif %}
+    </div>
+{% endblock content %}
